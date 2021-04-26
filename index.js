@@ -3,10 +3,10 @@
 
 let form = document.querySelector('.userForm');
 let calculateButton = document.querySelector('.calculate-button');
-let targetName = document.querySelector('.target-text');
-let requiredAmount = document.querySelector('.required-amount-text');
-let dateRequire = document.querySelector('.term-of-deposit')
-let depositPercentage = document.querySelector('.percent');
+let targetName = document.querySelector('.target-name');
+let requiredAmount = document.querySelector('.required-amount');
+let dateRequire = document.querySelector('.deposit-term')
+let depositPercentage = document.querySelector('.deposit-percentage');
 let startingAmount = document.querySelector('.starting-amount');
 
 class CalculateResultsObject {
