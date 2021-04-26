@@ -7,17 +7,26 @@ let targetName = document.querySelector('.target-name');
 let requiredAmount = document.querySelector('.required-amount');
 let depositPercentage = document.querySelector('.deposit-percentage');
 let startingAmount = document.querySelector('.starting-amount');
+
 class CalculateResultsObject {
-  constructor(name, amount, persents, startamount) {
+  constructor(name, amount, percents, startamount) {
     this.name = name
     this.amount = amount;
-    this.persents = persents;
+    this.percents = percents;
     this.startamount = startamount;
   }
 }
 
-calculateButton.addEventListener('click', (e) => {
-  e.preventDefault();
+calculateButton.addEventListener('click', (element) => {
+  element.preventDefault();
   let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value);
+  const newSection = document.createElement('ul');
+  newSection.className = 'target-card';
+  newSection.innerHTML = `<li class="item"><p>Размер платежа</p><input value = ""></li>
+                          <li class="item"><p>Название цели</p><input value = "${objOfResult.name}"></li>
+                          <li class="item"><p>Требуемая сумма</p><input value = "${objOfResult.amount}"></li>
+                          <li class="item"><p>Стартовая сумма</p><input value = "${objOfResult.startamount}"></li>
+                          <li class="item"><p>Процент по вкладу</p><input value = "${objOfResult.percents}"></li>`;
+  document.querySelector('.newSection').append(newSection);
   console.log(objOfResult);
 })
