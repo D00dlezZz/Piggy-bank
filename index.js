@@ -21,6 +21,11 @@ class CalculateResultsObject {
 
 calculateButton.addEventListener('click', (element) => {
   element.preventDefault();
+  сreateElementCart();
+  console.log(objOfResult);
+})
+
+function createElementCart () {
   let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
@@ -31,5 +36,4 @@ calculateButton.addEventListener('click', (element) => {
                           <li class="item"><p>Стартовая сумма</p><input value = "${objOfResult.startamount}"></li>
                           <li class="item"><p>Процент по вкладу</p><input value = "${objOfResult.percents}"></li>`;
   document.querySelector('.newSection').append(newSection);
-  console.log(objOfResult);
-})
+}
