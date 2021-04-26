@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body{
+    width: 1338px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    background-color: #9D3CE5;
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 174px;
+    margin: 0 auto;
+    border: 3px solid #9D3CE5;
+}
+
+.headlines-in-header{
+    display: block;
+    color: #FDFDFD;
+    margin-top: 26px;
+    margin-bottom: 30px;
+    margin-left: 39px;
+}
+
+.h1-in-header{
+    width: 898px;
+    height: 69px;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 6px;
+    margin-top: 0px;
+    margin-right: 215px;
+    font-size: 48px;
+}
+
+.h2-in-header{
+    width: 663px;
+    height: 43px;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 35px;
+}
+
+.header-logo{
+    width: 109px;
+    height: 94px;
+    margin-top: 34px;
+    margin-right: 74px;
+    margin-bottom: 46px;
+    margin-left: 0px;
+}
+
+.main{
+    background-color: #FFFFFF;
+    border: 3px solid #9D3CE5;
+    width: 1338px;
+    margin: 0 auto;
+}
+
+.user-from-div{
+    display: flex;
+}
+
+.left-inputs{
+    display: block;
+    width: 928px; 
+}
+
+.target-text, .required-amount-text, .term-of-deposit, .percent, .starting-amount-text{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #704AAE;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target-text{
+    width: 178px;
+    height: 24px;
+    line-height: 21px;
+    margin-top: 40px;
+    margin-right: 744px;
+    margin-bottom: 7.84px;
+    margin-left: 394px;
+    font-size: 25px;
+}
+
+.target-name{
+    width: 928px;
+    height: 33.16px;
+    background-color: #DBC2F3;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    font-size: 20px;
+    color: #800080;
+    margin-right: 390px;
+    margin-bottom: 21px;
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+
+.bottom-margins{
+    display: flex;
+}
+
+.required-amount-text{
+    width: 166px;
+    height: 21px;
+    line-height: 21px;
+    margin-right: 55px;
+    margin-bottom: 7px;
+    margin-left: 39px;
+}
+
+.required-amount, .deposit-term, .deposit-percentage, .starting-amount{
+    width: 200px;
+    height: 30px;
+    background-color: #DBC2F3;
+    border-radius: 20px;
+    border: 1px solid #000000;
+    outline: none;
+    color: #800080;
+    font-size: 20px;
+    padding-left: 15px;
+    margin-right: 32px;
+    margin-bottom: 139px;
+    margin-left: 21px;
+    box-sizing: border-box;
+}
+
+.term-of-deposit{
+    width: 153px;
+    height: 21px;
+    margin-right: 71px;
+    margin-bottom: 7px;
+    margin-left: 41px;
+}
+
+.percent{
+    width: 196px;
+    height: 21px;
+    margin-right: 45px;
+    margin-bottom: 7px;
+    margin-left: 23px;
+}
+
+.starting-amount-text{
+    width: 196px;
+    height: 21px;
+    margin-right: 136px;
+    margin-bottom: 7px;
+    margin-left: 24px;
+}
+
+.label-button{
+    margin-top: 100px;
+    margin-right: 39px;
+    margin-bottom: 168px;
+    margin-left: 125px;
+}
+
+.calculate-button{
+    width: 226px;
+    height: 58px;
+    font-size: 36px;
+    line-height: 42px;
+    font-family: "Roboto", sans-serif;  
+    color: #5A1186;
+    background-color: #6BD96A;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+label{
+    width: 241px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
