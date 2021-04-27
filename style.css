@@ -1,211 +1,217 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body{
-    width: 1338px;
+    width: 100%;
     margin: 0 auto;
+}
+
+.header-logo{
+    width: 89px;
+    height: 78px;
+    margin-top: 4px;
+    margin-right: 180px;
+    margin-bottom: 3px;
+    margin-left: 34px;
+    border-radius: 41px;
 }
 
 .header{
     display: flex;
-    background-color: #9D3CE5;
-    border-radius: 30px 30px 0px 0px;
-    width: 100%;
-    height: 174px;
+    background-color: #833AE0;
+    border: 1px solid #D2AFF6;
+    height: 85px;
     margin: 0 auto;
-    border: 3px solid #9D3CE5;
 }
 
-.headlines-in-header{
-    display: block;
+.header-information{
+    display: flex;
     color: #FDFDFD;
-    margin-top: 26px;
-    margin-bottom: 30px;
-    margin-left: 39px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 27px;
+    margin-right: 138px;
+    margin-bottom: 36px;
+    margin-left: 153px;
+    padding-left: 0;
+    width: 844px;
+    height: 22px;
+}
+
+.li-header{
+    margin-right: 100px;
+}
+
+.button-in{
+    width: 113px;
+    height: 41px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #833AE0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-bottom: 24px;
+    margin-left: 153px;
+}
+
+.main{
+    height: 401px;
+    background: #F9E95A;
+    border: 1px solid #EECD5B;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.user-from{
+    display: block;
+    margin-left: 120px;
+}
+
+input[type=text]::-webkit-input-placeholder {
+    color: #C4C4C4;
+}
+input[type=number]::-webkit-input-placeholder {
+    color: #C4C4C4;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.target-name{
+    width: 476px;
+    height: 39px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin-top: 92px;
+    margin-right: 127px;
+    margin-bottom: 13px;
+    margin-left: 120px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    color: #7846D8;
+    border: none;
+    outline: none;
+}
+
+.first-input{
+    display: flex;
+    margin-left: 120px;
+}
+
+.first-label, .second-label, .three-label, .four-label{
+    display: flex;
+    background-color: #FFFFFF;
+    width: 222px;
+    height: 50px;
+    border-radius: 5px;
+    padding-top: 1px;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #7846D8;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    padding-right: 1px;
+}
+
+.required-amount, .starting-amount, .deposit-term{
+    width: 150px;
+    height: 24px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #7846D8;
+    font-family: "Roboto", sans-serif;
+    border: none;
+    outline: none;
+    padding-top: 11px;
+    padding-bottom: 15px;
+    padding-left: 6px;
+}
+
+.deposit-percentage{
+    width: 173px;
+    height: 24px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #7846D8;
+    font-family: "Roboto", sans-serif;
+    border: none;
+    outline: none;
+    padding-top: 11px;
+    padding-bottom: 15px;
+    padding-left: 6px;
+}
+
+.second-label, .four-label{
+    margin-left: 34px;
+}
+
+.second-input{
+    display: flex;
+    margin-left: 120px;
+    margin-top: 10px;
+}
+
+.calculate-button{
+    width: 203px;
+    height: 43px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 20px;
+    line-height: 23px;
+    color: #7846D8;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin-top: 28px;
+    margin-right: 391px;
+    margin-bottom: 76px;
+    margin-left: 120px;
+}
+
+.h1-h2{
+    width: 685px;
+    height: 220px;
+    margin-top: 80px;
+    margin-right: 29px;
+    margin-bottom: 122px;
+    margin-left: 101px;
 }
 
 .h1-in-header{
-    width: 898px;
-    height: 69px;
+    width: 677px;
+    height: 124px;
+    font-size: 55px;
+    line-height: 64px;
+    color: #833AE0;
     font-family: "Roboto", sans-serif;
-    margin-bottom: 6px;
-    margin-top: 0px;
-    margin-right: 215px;
-    font-size: 48px;
+    margin: 0;
 }
 
 .h2-in-header{
     width: 663px;
     height: 43px;
-    font-family: "Roboto", sans-serif;
-    margin-bottom: 0px;
-    margin-top: 0px;
     font-size: 35px;
-}
-
-.header-logo{
-    width: 109px;
-    height: 94px;
-    margin-top: 34px;
-    margin-right: 74px;
-    margin-bottom: 46px;
-    margin-left: 0px;
-}
-
-.main{
-    background-color: #FFFFFF;
-    border: 3px solid #9D3CE5;
-    width: 1338px;
-    margin: 0 auto;
-}
-
-.user-from-div{
-    display: flex;
-}
-
-.left-inputs{
-    display: block;
-    width: 928px; 
-}
-
-.target-text, .required-amount-text, .term-of-deposit, .percent, .starting-amount-text{
+    line-height: 41px;
+    color: #833AE0;
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    text-align: center;
-    color: #704AAE;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.target-text{
-    width: 178px;
-    height: 24px;
-    line-height: 21px;
-    margin-top: 40px;
-    margin-right: 744px;
-    margin-bottom: 7.84px;
-    margin-left: 394px;
-    font-size: 25px;
-}
-
-.target-name{
-    width: 928px;
-    height: 33.16px;
-    background-color: #DBC2F3;
-    border: 1px solid #000000;
-    border-radius: 20px;
-    outline: none;
-    text-align: center;
-    font-size: 20px;
-    color: #800080;
-    margin-right: 390px;
-    margin-bottom: 21px;
-    margin-left: 20px;
-    box-sizing: border-box;
-}
-
-.bottom-margins{
-    display: flex;
-}
-
-.required-amount-text{
-    width: 166px;
-    height: 21px;
-    line-height: 21px;
-    margin-right: 55px;
-    margin-bottom: 7px;
-    margin-left: 39px;
-}
-
-.required-amount, .deposit-term, .deposit-percentage, .starting-amount{
-    font-family: 'Roboto', sans-serif;
-    width: 200px;
-    height: 30px;
-    background-color: #DBC2F3;
-    border-radius: 20px;
-    border: 1px solid #000000;
-    outline: none;
-    color: #800080;
-    font-size: 20px;
-    padding-left: 15px;
-    margin-right: 32px;
-    margin-bottom: 139px;
-    margin-left: 21px;
-    box-sizing: border-box;
-    padding-right: 60px;
-    padding-top: 3px;
-}
-
-.required-amount-div{
-    display: flex;
-    height: 27px;
-}
-
-.rub{
-    margin-top: 0px;
-    padding-right: 10px;
-    margin-left: -80px;
-    font-size: 20px;
-    color: #800080;
-    padding-top: 3px;
-    font-family: "Roboto", sans-serif;
-}
-
-.percent-icon{
-    margin-top: 1px;
-    padding-right: 10px;
-    margin-left: -67px;
-    font-size: 20px;
-    color: #800080;
-    padding-top: 3px;
-    font-family: "Roboto", sans-serif;
-}
-
-.term-of-deposit{
-    width: 153px;
-    height: 21px;
-    margin-right: 71px;
-    margin-bottom: 7px;
-    margin-left: 41px;
-}
-
-.percent{
-    width: 196px;
-    height: 21px;
-    margin-right: 45px;
-    margin-bottom: 7px;
-    margin-left: 23px;
-}
-
-.starting-amount-text{
-    width: 196px;
-    height: 21px;
-    margin-right: 136px;
-    margin-bottom: 7px;
-    margin-left: 24px;
-}
-
-.label-button{
-    margin-top: 100px;
-    margin-right: 39px;
-    margin-bottom: 168px;
-    margin-left: 125px;
-}
-
-.calculate-button{
-    width: 226px;
-    height: 58px;
-    font-size: 36px;
-    line-height: 42px;
-    font-family: "Roboto", sans-serif;  
-    color: #5A1186;
-    background-color: #6BD96A;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-}
-
-label{
-    width: 241px;
+    font-weight: 400;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -214,6 +220,55 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+/* начало классов js */
+.target-card{
+    width: 573px;
+    height: 288px;
+    margin-top: 70px;
+    margin-right: 182px;
+    margin-bottom: 99px;
+    margin-left: 149px;
+}
+
+.inp-target{
+    width: 260px;
+    height: 45px;
+    margin-top: 6px;
+    margin-right: 22px;
+    margin-bottom: 17px;
+    /* margin-left: 149px; */
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 41px;
+    color: #833AE0;
+    font-family: "Roboto", sans-serif;
+}
+
+.treb-sum, .srok-vyplati, .start-sum, .precent-vklad, .interest-income{
+    width: 226px;
+    height: 30px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #833AE0;
+    font-family: "Roboto", sans-serif;
+    margin-top: 17px;
+    margin-right: 14px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    padding-top: 0;
+}
+
+.payment{
+    width: 388px;
+    height: 37px;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    color: #833AE0;
 }
 
 .item-payment-amount{
@@ -231,7 +286,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .item{
-    font-family: "Roboto", sans-serif; 
+    /* font-family: "Roboto", sans-serif; 
     width: 925px;
     height: 30px;
     margin-right: 60px;
@@ -240,7 +295,8 @@ input[type=number]::-webkit-outer-spin-button {
     color: #704AAE;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 25px;
-    justify-content: space-between;
+    justify-content: space-between; */
+    margin-left: 53px;
 }
 
 .item-end{
@@ -257,18 +313,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 30px;
     color: #B33263;
     width: 220px;
-    background-color: #E6E6FA;
-}
-
-.inp-target{
-    margin-left: -53px;
-    margin-top: 6px;
-    margin-bottom: 5px;
-    height: 30px;
-    outline: none;
-    border: none;
-    font-size: 25px;
-    color: #704AAE;
     background-color: #E6E6FA;
 }
 
@@ -347,16 +391,6 @@ p{
 /* ul{
     margin-left: 515px;
 } */
-
-.target-card{
-    background-color: #E6E6FA;
-    width: 768px;
-    border-radius: 15px;
-}
-
-.payment{
-    padding-top: 12px;
-}
 
 .income{
     margin-left: 140px;
