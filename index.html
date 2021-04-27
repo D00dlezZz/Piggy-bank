@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="icon" href="/image/kisspng-computer-icons-download-approve-symbol-5adcfc023720d6.7107077115244318742258.jpg" type="image/x-icon"/>
+    <title>Save Money</title>
+</head>
+<body>
+  <header class="header">
+    <div class="headlines-in-header">
+      <h1 class="h1-in-header">Копите на любые цели вместе с нами!</h1>
+      <h2 class="h2-in-header">НАКОПИТЕЛЬНЫЙ СЧЁТ «КОПИЛКА»</h2>
+    </div>
+    <img class="header-logo" src="/image/logo-header.svg" alt="logo">
+  </header>
+  <main class="main">
+    <div class="user-inputes-block">
+      <form class="user-from">
+        <div class="user-from-div">
+          <div class="left-inputs">
+            <label>
+              <p class="target-text">Цель вклада</p>
+              <input class="target-name" type="text" name="target-name" required>
+            </label>
+            <div class="bottom-margins">
+              <label>
+                <p class="required-amount-text">Требуемая сумма</p>
+                <div class="required-amount-div">
+                    <input class="required-amount" name="required-amount" type="number" required>
+                    <p class="rub">руб.</p>
+                </div>
+              </label>
+              <label>
+                <p class="term-of-deposit">Срок вклада</p>
+                <div class="required-amount-div">
+                    <input class="deposit-term" type="number" name="deposit-term" required>
+                    <p class="rub">мес.</p>
+                </div>
+              </label>
+              <label>
+                <p class="percent">Процент по вкладу</p>
+                <div class="required-amount-div">
+                    <input class="deposit-percentage" type="number" name="deposit-percentage" required>
+                    <p class="percent-icon">%</p>
+                </div>
+              </label>
+              <label>
+                <p class="starting-amount-text">Стартовая сумма</p>
+                <div class="required-amount-div">
+                    <input class="starting-amount" type="number" name="starting-amount" required>
+                    <p class="rub">руб.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <label class="label-button">
+            <button name="calculate-button" class="calculate-button">Рассчитать</button>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="newSection"></div>
+  </main>
+    <script src="/index.js"></script>
+</body>
+</html>
