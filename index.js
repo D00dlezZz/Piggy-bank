@@ -2,6 +2,7 @@
 //Рассчитать должен выводиться объект с ключами и значениями ввода
 
 let form = document.querySelector('.userForm');
+let input = document.querySelectorAll('input')
 let calculateButton = document.querySelector('.calculate-button');
 let targetName = document.querySelector('.target-name');
 let requiredAmount = document.querySelector('.required-amount');
@@ -19,17 +20,21 @@ class CalculateResultsObject {
   }
 }
 
+
+
 calculateButton.addEventListener('click', (element) => {
   element.preventDefault();
   let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
-  newSection.innerHTML = `<li class="item"><p>Размер платежа</p><input value =""></li>
+  newSection.innerHTML = `<button class="delete"></button>
+                          <li class="item"><p>Размер платежа</p><input value ="${((objOfResult.amount - objOfResult.startamount) / objOfResult.date).toFixed(4)}"></li>
                           <li class="item"><p>Название цели</p><input value = "${objOfResult.name}"></li>
                           <li class="item"><p>Требуемая сумма</p><input value = "${objOfResult.amount}"></li>
                           <li class="item"><p>Срок выплаты</p><input value = "${objOfResult.date}"></li>
                           <li class="item"><p>Стартовая сумма</p><input value = "${objOfResult.startamount}"></li>
                           <li class="item"><p>Процент по вкладу</p><input value = "${objOfResult.percents}"></li>`;
   document.querySelector('.newSection').append(newSection);
-  console.log(objOfResult);
 })
+
+
