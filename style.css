@@ -246,7 +246,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .inp-payment-amount{
     margin-left: 190px;
-    margin-top: -47px;
+    margin-top: -10px;
     margin-bottom: 5px;
     height: 30px;
     outline: none;
@@ -258,8 +258,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .inp-target{
-    margin-left: 203px;
-    margin-top: 0px;
+    margin-left: -53px;
+    margin-top: 6px;
     margin-bottom: 5px;
     height: 30px;
     outline: none;
@@ -270,7 +270,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .inp-required-amount{
-    margin-left: 175px;
+    margin-left: 130px;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -279,10 +279,11 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
+    width: 97px;
 }
 
 .inp-term-of-deposit{
-    margin-left: 213px;
+    margin-left: 133px;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -291,10 +292,11 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
+    width: 44px;
 }
 
 .inp-starting-amount{
-    margin-left: 180px;
+    margin-left: 134px;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -303,10 +305,11 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
+    width: 97px;
 }
 
 .inp-percent{
-    margin-left: 160px;
+    margin-left: 136px;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -315,6 +318,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
+    width: 30px;
 }
 
 li{
@@ -326,6 +330,7 @@ p{
     margin-top: 10px;
     padding-top: 11px;
     margin-left: -305px;
+    height: 0px;
 }
 
 ul{
@@ -343,8 +348,8 @@ ul{
 }
 
 .income{
-    margin-left: 90px;
-    margin-top: -40px;
+    margin-left: 140px;
+    margin-top: -9px;
 }
 
 .income-item{
