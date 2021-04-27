@@ -8,13 +8,11 @@ let requiredAmount = document.querySelector('.required-amount');
 let dateRequire = document.querySelector('.deposit-term')
 let depositPercentage = document.querySelector('.deposit-percentage');
 let startingAmount = document.querySelector('.starting-amount');
-let targetCard = document.querySelector('.target-card');
-let chartWrapperContainer = document.querySelector('chart-wrapper-container');
 let termOfDeposit = document.querySelector('.deposit-term');
-let myGraff = document.getElementById('myChart');
-let chartWrapper = document.querySelector('chart-wrapper')
+let chartWrapper = document.querySelector('.chart-wrapper');
+let myChart;
 
-
+console.log(document.getElementById('myChart'));
 
 class CalculateResultsObject {
   constructor(name, amount, percents, startamount, date) {
@@ -26,14 +24,17 @@ class CalculateResultsObject {
   }
 }
 
-let ctx;
+let canvasId = 0;
 
 function createNewSection() {
+  let newWrapper = document.createElement('div');
+  newWrapper.className = "new-wrapper";
   let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
   let newButton = document.createElement('button');
   newButton.className = "delete-botton";
   newButton.type = "button";
   newButton.innerHTML = "Удалить";
+  let newChart = newGraff();
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
   newSection.innerHTML = `<li class="item"><p>Название цели<input value = "${objOfResult.name}" class="inp-target"></p></li>
@@ -43,18 +44,39 @@ function createNewSection() {
                           <li class="item item-end"><p>Процент по вкладу<input value = "${objOfResult.percents}" class="inp-percent"></p></li>
                           <li class="item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents} руб.</p></li>
                           <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date} руб.</p></li>`;
-  // let graff = document.createElement("div");
-  // graff.className = "chart-wrapper";
-  
-  // graff.innerHTML = `<canvas id="myChart"></canvas>`;
-  // // newSection.prepend(graff);
-  // // chartWrapperContainer.insertBefore(graff,newSection);
-  // // chartWrapperContainer.insertBefore(graff,newSection);
-  // chartWrapper.classList.add('.showContent');
-  // ctx = document.getElementById('myChart').getContext('2d');
   newSection.append(newButton);
-  return newSection;
+
+  // newWrapper.prepend(newChart);
+  // newWrapper.append(newSection)
+  newWrapper.append(newChart);
+  const createdCanvasId = canvasId++;
+  newWrapper.prepend(newSection)
+  setTimeout(() => {
+    let oldCanvas = newWrapper.querySelector('canvas');
+    let canvas = document.getElementById(`createdChart-${createdCanvasId}`)  
+
+    console.log(oldCanvas, canvas);
+    console.log(oldCanvas === canvas);
+    let ctx = canvas.getContext('2d');
+    console.log(ctx);
+    myChart = new Chart(ctx, {
+      type: 'pie',
+      data: data
+    });
+    console.log(data, myChart);
+    myChart.update();
+  }, 10)
+  return newWrapper;
 }
+
+function newGraff() {
+  let graff = document.createElement("div");
+  graff.className = "chart-wrapper";
+  graff.innerHTML = `<canvas id="createdChart-${canvasId}"></canvas>`;
+
+  return graff;
+}
+
 
 calculateButton.addEventListener('click', (element) => {
   element.preventDefault();
@@ -68,24 +90,13 @@ calculateButton.addEventListener('click', (element) => {
   clone.querySelector('.delete-botton').addEventListener('click', () => {
     clone.remove();
   })
-  // chartWrapper.classList.add('showContent');
-  chartWrapper.style.display = 'flex';
   targetName.value = "";
   requiredAmount.value = "";
   dateRequire.value = "";
   depositPercentage.value = "";
   startingAmount.value = "";
-  // console.log(objOfResult);
+
 })
-
-function createGraff() {
-let graff = document.createElement("div");
-graff.className = "chart-wrapper";
-
-graff.innerHTML = `<canvas id="myChart"></canvas>`;
-// chartWrapper.classList.add('.showContent');
-ctx = document.getElementById('myChart').getContext('2d');
-}
 
 
 
@@ -121,7 +132,7 @@ let data = {
       'rgb(238, 130, 238)',
       'rgb(138 43 226)'
     ],
-    // hoverOffset: 13,
+    hoverOffset: 13,
     borderWidth: 2,
     borderColor: '#f11f23f3',
     borderRadius: 25
@@ -129,30 +140,24 @@ let data = {
 
 };
 
+// let ctx = document.getElementById('myChart').getContext('2d');
+// console.log(ctx);
 
-ctx = document.getElementById('myChart').getContext('2d');
-
-let myChart = new Chart(ctx, {
-  type: 'pie',
-  data: data
-})
+// let myChart = new Chart(ctx, {
+//   type: 'pie',
+//   data: data
+// });
 
 
 let updateChartValue = (input, dataOrder) => {
   input.addEventListener('input', event => {
-    // console.log(event.target.value);
-    // console.log(myChart[0].data.datasets.data[0]);
-    console.log(data.datasets[0].data[0]);
+
     myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
     myChart.update();
     // console.log(data.datasets[0].data[0]);
   })
 };
 
-// termOfDeposit.oninput(() => {
-//     myChart.data.dataset[0].data[dataOrder] = event.target.value;
-//     myChart.update();
-// })
 
 updateChartValue(termOfDeposit, 0);
 updateChartValue(requiredAmount, 1);
@@ -166,3 +171,72 @@ updateChartValue(startingAmount, 3);
 
 
 
+
+
+
+  // let i = +0;
+//   graff.innerHTML = `<canvas id="myChart${i + Number(1)}"></canvas>`;
+
+// console.log(i);
+
+
+// termOfDeposit.oninput(() => {
+//     myChart.data.dataset[0].data[dataOrder] = event.target.value;
+//     myChart.update();
+// })
+
+
+    // console.log(event.target.value);
+    // console.log(myChart[0].data.datasets.data[0]);
+    // console.log(data.datasets[0].data[0]);
+
+
+    // let ctx = document.getElementById('myChart').getContext('2d');
+
+// let myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
+//   type: 'pie',
+//   data: data
+// })
+
+
+
+// let createGraff = () => {
+  //   let graff = document.createElement("div");
+  //   graff.className = "chart-wrapper";
+  //   graff.innerHTML = `<canvas id="myChart"></canvas>`;
+  //   return graff;
+  //   };
+  // console.log(createGraff);
+  // let cloneGraff = createGraff.cloneNode(true);
+  // console.log(cloneGraff);
+  // chartWrapperContainer.append(cloneGraff);
+
+
+  // chartWrapper.classList.add('showContent');
+  // chartWrapper.style.display = 'flex';
+
+
+    // let createGraff = () => {
+  //   let graff = document.createElement("div");
+  //   graff.className = "chart-wrapper";
+  //   graff.innerHTML = `<canvas id="myChart"></canvas>`;
+  //   return graff;
+  //   };
+  // let createGraff123 = createGraff();
+  // console.log(createGraff);
+  // let cloneGraff = createGraff123.cloneNode(true);
+  // console.log(cloneGraff);
+  // chartWrapperContainer.append(cloneGraff);
+  // let ctx = document.getElementById('myChart').getContext('2d');
+
+  // let myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
+  //   type: 'pie',
+  //   data: data
+  // })
+
+  // graff.innerHTML = `<canvas id="myChart"></canvas>`;
+  // // newSection.prepend(graff);
+  // // chartWrapperContainer.insertBefore(graff,newSection);
+  // // chartWrapperContainer.insertBefore(graff,newSection);
+  // chartWrapper.classList.add('.showContent');
+  // ctx = document.getElementById('myChart').getContext('2d');
