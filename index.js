@@ -39,7 +39,6 @@ function createNewSection() {
 }
 
 form.addEventListener('submit', (element) => {
-  console.log('hi')
   element.preventDefault();
   let newsection = createNewSection();
   let clone = newsection.cloneNode(true);

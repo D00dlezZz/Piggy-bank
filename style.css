@@ -116,6 +116,7 @@ body{
 }
 
 .required-amount, .deposit-term, .deposit-percentage, .starting-amount{
+    font-family: 'Roboto', sans-serif;
     width: 200px;
     height: 30px;
     background-color: #DBC2F3;
