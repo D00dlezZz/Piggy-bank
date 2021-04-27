@@ -39,14 +39,40 @@ function createNewSection() {
 }
 
 form.addEventListener('submit', (element) => {
+  
   element.preventDefault();
   let newsection = createNewSection();
   let clone = newsection.cloneNode(true);
   document.querySelector('.newSection').append(clone);
-  console.log(clone);
-  document.querySelector('.inp-required-amount').addEventListener('input', () => {
-    document.querySelector('.income').innerHTML = (document.querySelector('.inp-required-amount').value - document.querySelector('.inp-starting-amount').value)/100 * document.querySelector('.inp-percent').value;
-  })
+  if (Number(requiredAmount.value) < Number(startingAmount.value) ) {
+    alert('Внимание! Вы ввели неверные данные (требуемая сумма меньше первоначального взноса)!')
+    clone.remove();
+  }
+
+  let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+  let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+  let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+  let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+  let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
+  let newIncome = document.querySelector('.income')//доход от процента
+
+  newRequiredAmount.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+  newTermOfDestroid.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+  newStartingAmount.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+  newPrecent.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+
   clone.querySelector('.delete-botton').addEventListener('click', () => {
     clone.remove();
   })
