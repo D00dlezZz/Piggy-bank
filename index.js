@@ -44,6 +44,18 @@ calculateButton.addEventListener('click', (element) => {
   let clone = newsection.cloneNode(true);
   document.querySelector('.newSection').append(clone);
   console.log(clone);
+  let newName = document.querySelector('.inp-target');//Имя в карточке 
+  let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+  let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+  let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+  let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+  
+  ////////////////////////////////////////////////////////////Расчёты////////////////////////////////////////////////////////////////////////
+  //                                                                                                                                       //
+  // Размер ежемесячного платежа считается так: Требуемая сумма - Изначальный взнос - ((Требуемая сумма - Изначальный взнос)/100 * процент)//
+  // Доход по вкладу рассчитывается так: (Требуемая сумма - Изначальный взнос)/100 * процент                                               //
+  //                                                                                                                                       //
+  ////////////////////////////////////////////////////////////Расчёты////////////////////////////////////////////////////////////////////////
   document.querySelector('.inp-required-amount').addEventListener('input', () => {
     document.querySelector('.income').innerHTML = (document.querySelector('.inp-required-amount').value - document.querySelector('.inp-starting-amount').value)/100 * document.querySelector('.inp-percent').value;
   })

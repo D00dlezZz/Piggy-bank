@@ -145,6 +145,7 @@ body{
     font-size: 20px;
     color: #800080;
     padding-top: 3px;
+    font-family: "Roboto", sans-serif;
 }
 
 .percent-icon{
@@ -154,6 +155,7 @@ body{
     font-size: 20px;
     color: #800080;
     padding-top: 3px;
+    font-family: "Roboto", sans-serif;
 }
 
 .term-of-deposit{
@@ -270,7 +272,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .inp-required-amount{
-    margin-left: 130px;
+    margin-left: 0;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -279,11 +281,13 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
-    width: 97px;
+    width: 190px;
+    text-align: end;
+    margin-right: 10px;
 }
 
 .inp-term-of-deposit{
-    margin-left: 133px;
+    margin-left: 0;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -292,11 +296,13 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
-    width: 44px;
+    width: 190px;
+    text-align: end;
+    margin-right: 10px;
 }
 
 .inp-starting-amount{
-    margin-left: 134px;
+    margin-left: 0;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -305,11 +311,13 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
-    width: 97px;
+    width: 190px;
+    text-align: end;
+    margin-right: 10px;
 }
 
 .inp-percent{
-    margin-left: 136px;
+    margin-left: 0;
     margin-top: 0px;
     margin-bottom: 5px;
     height: 30px;
@@ -318,7 +326,9 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     color: #704AAE;
     background-color: #E6E6FA;
-    width: 30px;
+    width: 190px;
+    text-align: end;
+    margin-right: 10px;
 }
 
 li{
