@@ -35,6 +35,7 @@ function createNewSection() {
   let newChart = newGraff();
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
+
   newSection.innerHTML = `<li class="item"><p>Название цели<input value = "${objOfResult.name}" class="inp-target"></p></li>
                           <li class="item"><p>Требуемая сумма<input value = "${objOfResult.amount}" class="inp-required-amount"></p></li>
                           <li class="item"><p>Срок выплаты<input value = "${objOfResult.date}" class="inp-term-of-deposit"></p></li>
@@ -42,6 +43,8 @@ function createNewSection() {
                           <li class="item item-end"><p>Процент по вкладу<input value = "${objOfResult.percents}" class="inp-percent"></p></li>
                           <li class="item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents} руб.</p></li>
                           <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date} руб.</p></li>`;
+
+
   newSection.append(newButton);
   newWrapper.append(newChart);
   const createdCanvasId = canvasId++;
@@ -59,7 +62,6 @@ function createNewSection() {
   }, 10)
   return newWrapper;
 }
-
 
 form.addEventListener('submit', (element) => {
   
@@ -175,6 +177,7 @@ updateChartValue(termOfDeposit, 0);
 updateChartValue(requiredAmount, 1);
 updateChartValue(depositPercentage, 2);
 updateChartValue(startingAmount, 3);
+
 
 
 
