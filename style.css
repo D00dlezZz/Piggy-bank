@@ -129,6 +129,31 @@ body{
     margin-bottom: 139px;
     margin-left: 21px;
     box-sizing: border-box;
+    padding-right: 60px;
+    padding-top: 3px;
+}
+
+.required-amount-div{
+    display: flex;
+    height: 27px;
+}
+
+.rub{
+    margin-top: 0px;
+    padding-right: 10px;
+    margin-left: -80px;
+    font-size: 20px;
+    color: #800080;
+    padding-top: 3px;
+}
+
+.percent-icon{
+    margin-top: 1px;
+    padding-right: 10px;
+    margin-left: -67px;
+    font-size: 20px;
+    color: #800080;
+    padding-top: 3px;
 }
 
 .term-of-deposit{
@@ -186,4 +211,161 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+.item-payment-amount{
+    font-family: "Roboto", sans-serif; 
+    width: 925px;
+    height: 30px;
+    margin-right: 60px;
+    margin-bottom: 0px;
+    margin-left: 353px;
+    color: #B33263;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 30px;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.item{
+    font-family: "Roboto", sans-serif; 
+    width: 925px;
+    height: 30px;
+    margin-right: 60px;
+    margin-bottom: 12px;
+    margin-left: 353px;
+    color: #704AAE;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 25px;
+    justify-content: space-between;
+}
+
+.item-end{
+    padding-bottom: 20px;
+}
+
+.inp-payment-amount{
+    margin-left: 190px;
+    margin-top: -47px;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-size: 30px;
+    color: #B33263;
+    width: 220px;
+    background-color: #E6E6FA;
+}
+
+.inp-target{
+    margin-left: 203px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: #704AAE;
+    background-color: #E6E6FA;
+}
+
+.inp-required-amount{
+    margin-left: 175px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: #704AAE;
+    background-color: #E6E6FA;
+}
+
+.inp-term-of-deposit{
+    margin-left: 213px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: #704AAE;
+    background-color: #E6E6FA;
+}
+
+.inp-starting-amount{
+    margin-left: 180px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: #704AAE;
+    background-color: #E6E6FA;
+}
+
+.inp-percent{
+    margin-left: 160px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: #704AAE;
+    background-color: #E6E6FA;
+}
+
+li{
+    list-style-type: none;
+}
+
+p{
+    margin-bottom: 0px;
+    margin-top: 10px;
+    padding-top: 11px;
+    margin-left: -305px;
+}
+
+ul{
+    margin-left: 515px;
+}
+
+.target-card{
+    background-color: #E6E6FA;
+    width: 768px;
+    border-radius: 15px;
+}
+
+.payment{
+    padding-top: 12px;
+}
+
+.income{
+    margin-left: 90px;
+    margin-top: -40px;
+}
+
+.income-item{
+    margin-top: -5px;
+}
+
+.interest-income{
+    margin-top: -15px;
+}
+
+.delete-botton{
+    margin-left: 651px;
+    margin-top: 18px;
+    margin-bottom: 17px;
+    font-family: "Roboto", sans-serif; 
+    outline: none;
+    border: none;
+    color: #000;
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    background-color: #D8BFD8;
 }
