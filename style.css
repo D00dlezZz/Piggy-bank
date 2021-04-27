@@ -344,9 +344,9 @@ p{
     height: 0px;
 }
 
-ul{
+/* ul{
     margin-left: 515px;
-}
+} */
 
 .target-card{
     background-color: #E6E6FA;
@@ -384,4 +384,28 @@ ul{
     height: 30px;
     font-size: 20px;
     background-color: #D8BFD8;
+}
+
+.chart-wrapper {
+    width: 320px;
+    height: 330px;
+   display: flex;
+    
+  }
+
+.showContent{
+    display: flex;
+} 
+.hidden {
+    display: none;
+}
+.chart-wrapper-container {
+    display: flex;
+}
+/* #myChart {
+    width: 0px;
+    height: 0px;
+} */
+.new-wrapper {
+    display: flex;
 }
