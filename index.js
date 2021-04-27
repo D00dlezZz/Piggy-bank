@@ -140,21 +140,13 @@ let data = {
 
 };
 
-// let ctx = document.getElementById('myChart').getContext('2d');
-// console.log(ctx);
-
-// let myChart = new Chart(ctx, {
-//   type: 'pie',
-//   data: data
-// });
-
 
 let updateChartValue = (input, dataOrder) => {
   input.addEventListener('input', event => {
 
     myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
     myChart.update();
-    // console.log(data.datasets[0].data[0]);
+ 
   })
 };
 
@@ -173,70 +165,3 @@ updateChartValue(startingAmount, 3);
 
 
 
-
-  // let i = +0;
-//   graff.innerHTML = `<canvas id="myChart${i + Number(1)}"></canvas>`;
-
-// console.log(i);
-
-
-// termOfDeposit.oninput(() => {
-//     myChart.data.dataset[0].data[dataOrder] = event.target.value;
-//     myChart.update();
-// })
-
-
-    // console.log(event.target.value);
-    // console.log(myChart[0].data.datasets.data[0]);
-    // console.log(data.datasets[0].data[0]);
-
-
-    // let ctx = document.getElementById('myChart').getContext('2d');
-
-// let myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
-//   type: 'pie',
-//   data: data
-// })
-
-
-
-// let createGraff = () => {
-  //   let graff = document.createElement("div");
-  //   graff.className = "chart-wrapper";
-  //   graff.innerHTML = `<canvas id="myChart"></canvas>`;
-  //   return graff;
-  //   };
-  // console.log(createGraff);
-  // let cloneGraff = createGraff.cloneNode(true);
-  // console.log(cloneGraff);
-  // chartWrapperContainer.append(cloneGraff);
-
-
-  // chartWrapper.classList.add('showContent');
-  // chartWrapper.style.display = 'flex';
-
-
-    // let createGraff = () => {
-  //   let graff = document.createElement("div");
-  //   graff.className = "chart-wrapper";
-  //   graff.innerHTML = `<canvas id="myChart"></canvas>`;
-  //   return graff;
-  //   };
-  // let createGraff123 = createGraff();
-  // console.log(createGraff);
-  // let cloneGraff = createGraff123.cloneNode(true);
-  // console.log(cloneGraff);
-  // chartWrapperContainer.append(cloneGraff);
-  // let ctx = document.getElementById('myChart').getContext('2d');
-
-  // let myChart = new Chart(document.getElementById('myChart').getContext('2d'), {
-  //   type: 'pie',
-  //   data: data
-  // })
-
-  // graff.innerHTML = `<canvas id="myChart"></canvas>`;
-  // // newSection.prepend(graff);
-  // // chartWrapperContainer.insertBefore(graff,newSection);
-  // // chartWrapperContainer.insertBefore(graff,newSection);
-  // chartWrapper.classList.add('.showContent');
-  // ctx = document.getElementById('myChart').getContext('2d');
