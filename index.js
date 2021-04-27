@@ -1,7 +1,5 @@
-//Артем: При нажатии на кнопку 
-//Рассчитать должен выводиться объект с ключами и значениями ввода
 
-let form = document.querySelector('.user-form');
+let form = document.querySelector('.user-from');
 let calculateButton = document.querySelector('.calculate-button');
 let targetName = document.querySelector('.target-name');
 let requiredAmount = document.querySelector('.required-amount');
@@ -12,17 +10,17 @@ let termOfDeposit = document.querySelector('.deposit-term');
 let chartWrapper = document.querySelector('.chart-wrapper');
 let myChart;
 
-console.log(document.getElementById('myChart'));
 
 class CalculateResultsObject {
   constructor(name, amount, percents, startamount, date) {
     this.name = name,
-      this.amount = amount,
-      this.percents = percents,
-      this.startamount = startamount,
-      this.date = date
+    this.amount = amount,
+    this.percents = percents,
+    this.startamount = startamount,
+    this.date = date
   }
 }
+
 
 let canvasId = 0;
 
@@ -45,18 +43,11 @@ function createNewSection() {
                           <li class="item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents} руб.</p></li>
                           <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date} руб.</p></li>`;
   newSection.append(newButton);
-
-  // newWrapper.prepend(newChart);
-  // newWrapper.append(newSection)
   newWrapper.append(newChart);
   const createdCanvasId = canvasId++;
   newWrapper.prepend(newSection)
   setTimeout(() => {
-    let oldCanvas = newWrapper.querySelector('canvas');
     let canvas = document.getElementById(`createdChart-${createdCanvasId}`)  
-
-    console.log(oldCanvas, canvas);
-    console.log(oldCanvas === canvas);
     let ctx = canvas.getContext('2d');
     console.log(ctx);
     myChart = new Chart(ctx, {
@@ -69,24 +60,42 @@ function createNewSection() {
   return newWrapper;
 }
 
-function newGraff() {
-  let graff = document.createElement("div");
-  graff.className = "chart-wrapper";
-  graff.innerHTML = `<canvas id="createdChart-${canvasId}"></canvas>`;
 
-  return graff;
-}
-
-
-calculateButton.addEventListener('click', (element) => {
+form.addEventListener('submit', (element) => {
+  
   element.preventDefault();
   let newsection = createNewSection();
   let clone = newsection.cloneNode(true);
   document.querySelector('.newSection').append(clone);
-  console.log(clone);
-  document.querySelector('.inp-required-amount').addEventListener('input', () => {
-    document.querySelector('.income').innerHTML = (document.querySelector('.inp-required-amount').value - document.querySelector('.inp-starting-amount').value) / 100 * document.querySelector('.inp-percent').value;
-  })
+  if (Number(requiredAmount.value) < Number(startingAmount.value) ) {
+    alert('Внимание! Вы ввели неверные данные (требуемая сумма меньше первоначального взноса)!')
+    clone.remove();
+  }
+
+  let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+  let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+  let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+  let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+  let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
+  let newIncome = document.querySelector('.income')//доход от процента
+
+  newRequiredAmount.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+  newTermOfDestroid.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+  newStartingAmount.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+  newPrecent.addEventListener('input', () => {
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+  });
+
   clone.querySelector('.delete-botton').addEventListener('click', () => {
     clone.remove();
   })
@@ -95,9 +104,20 @@ calculateButton.addEventListener('click', (element) => {
   dateRequire.value = "";
   depositPercentage.value = "";
   startingAmount.value = "";
-
+  // console.log(objOfResult);
 })
 
+
+
+
+
+function newGraff() {
+  let graff = document.createElement("div");
+  graff.className = "chart-wrapper";
+  graff.innerHTML = `<canvas id="createdChart-${canvasId}"></canvas>`;
+
+  return graff;
+}
 
 
 let data = {
@@ -132,7 +152,7 @@ let data = {
       'rgb(238, 130, 238)',
       'rgb(138 43 226)'
     ],
-    hoverOffset: 13,
+    hoverOffset: 10,
     borderWidth: 2,
     borderColor: '#f11f23f3',
     borderRadius: 25
@@ -155,6 +175,8 @@ updateChartValue(termOfDeposit, 0);
 updateChartValue(requiredAmount, 1);
 updateChartValue(depositPercentage, 2);
 updateChartValue(startingAmount, 3);
+
+
 
 
 
