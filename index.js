@@ -1,5 +1,3 @@
-//Артем: При нажатии на кнопку 
-//Рассчитать должен выводиться объект с ключами и значениями ввода
 
 let form = document.querySelector('.user-from');
 let calculateButton = document.querySelector('.calculate-button');
@@ -8,6 +6,10 @@ let requiredAmount = document.querySelector('.required-amount');
 let dateRequire = document.querySelector('.deposit-term')
 let depositPercentage = document.querySelector('.deposit-percentage');
 let startingAmount = document.querySelector('.starting-amount');
+let termOfDeposit = document.querySelector('.deposit-term');
+let chartWrapper = document.querySelector('.chart-wrapper');
+let myChart;
+
 
 class CalculateResultsObject {
   constructor(name, amount, percents, startamount, date) {
@@ -19,14 +21,21 @@ class CalculateResultsObject {
   }
 }
 
+
+let canvasId = 0;
+
 function createNewSection() {
+  let newWrapper = document.createElement('div');
+  newWrapper.className = "new-wrapper";
   let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
   let newButton = document.createElement('button');
   newButton.className = "delete-botton";
   newButton.type = "button";
   newButton.innerHTML = "Удалить";
+  let newChart = newGraff();
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
+
   newSection.innerHTML = `<li class="item"><input value = "${objOfResult.name}" class="inp-target"></li>
                           <li class="item"><div><p class="treb-sum">Требуемая сумма</p><input value = "${objOfResult.amount}" class="inp-required-amount">руб.</div></li>
                           <li class="item"><div><p class="start-sum">Стартовая сумма</p><input value = "${objOfResult.startamount}" class="inp-starting-amount">руб.</div></li>
@@ -35,7 +44,21 @@ function createNewSection() {
                           <li class="item"><div><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents} руб.</p></div></li>
                           <li class="item-payment-amount"><div><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${((objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents))/objOfResult.date).toFixed(4)} руб.</div></p></li>`;
   newSection.append(newButton);
-  return newSection;
+  newWrapper.append(newChart);
+  const createdCanvasId = canvasId++;
+  newWrapper.prepend(newSection)
+  setTimeout(() => {
+    let canvas = document.getElementById(`createdChart-${createdCanvasId}`)  
+    let ctx = canvas.getContext('2d');
+    console.log(ctx);
+    myChart = new Chart(ctx, {
+      type: 'pie',
+      data: data
+    });
+    console.log(data, myChart);
+    myChart.update();
+  }, 10)
+  return newWrapper;
 }
 
 form.addEventListener('submit', (element) => {
@@ -84,4 +107,84 @@ form.addEventListener('submit', (element) => {
   // console.log(objOfResult);
 })
 
-// 
+
+
+
+
+function newGraff() {
+  let graff = document.createElement("div");
+  graff.className = "chart-wrapper";
+  graff.innerHTML = `<canvas id="createdChart-${canvasId}"></canvas>`;
+
+  return graff;
+}
+
+
+let data = {
+  labels: [
+    'January',
+    'Febrary',
+    'March',
+    'April',
+    'May',
+    'June',
+    'Jule',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ],
+  datasets: [{
+    label: 'My Dataset',
+    data: [10, 20, 30, 40],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(0, 128, 0)',
+      'rgb(128, 0, 128)',
+      'rgb(128, 128, 128)',
+      'rgb(0, 255, 255)',
+      'rgb(0, 100, 0)',
+      'rgb(0, 255, 0)',
+      'rgb(255, 215, 0)',
+      'rgb(238, 130, 238)',
+      'rgb(138 43 226)'
+    ],
+    hoverOffset: 10,
+    borderWidth: 2,
+    borderColor: '#f11f23f3',
+    borderRadius: 25
+  }],
+
+};
+
+
+let updateChartValue = (input, dataOrder) => {
+  input.addEventListener('input', event => {
+
+    myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
+    myChart.update();
+ 
+  })
+};
+
+
+updateChartValue(termOfDeposit, 0);
+updateChartValue(requiredAmount, 1);
+updateChartValue(depositPercentage, 2);
+updateChartValue(startingAmount, 3);
+
+
+
+
+
+
+
+
+
+
+
+
+
