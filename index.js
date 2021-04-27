@@ -57,3 +57,81 @@ calculateButton.addEventListener('click', (element) => {
   startingAmount.value = "";
   // console.log(objOfResult);
 })
+
+
+let data = {
+    labels: [
+        'January',
+        'Febrary',
+        'March',
+        'April',
+        'May',
+        'June',
+        'Jule',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ],
+    datasets: [{
+        label: 'My Dataset',
+        data: [10, 20, 30,40],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            'rgb(0, 128, 0)',
+            'rgb(128, 0, 128)',
+            'rgb(128, 128, 128)',
+            'rgb(0, 255, 255)',
+            'rgb(0, 100, 0)',
+            'rgb(0, 255, 0)',
+            'rgb(255, 215, 0)',
+            'rgb(238, 130, 238)',
+            'rgb(138 43 226)'
+        ],
+        // hoverOffset: 13,
+        borderWidth: 2,
+        borderColor: '#f11f23f3',
+        borderRadius: 25
+    }],
+
+};
+
+
+
+let myChart = new Chart(ctx, {
+    type: 'pie',
+    data: data
+})
+
+
+let updateChartValue = (input, dataOrder) => {
+    input.addEventListener('input', event => {
+        // console.log(event.target.value);
+        // console.log(myChart[0].data.datasets.data[0]);
+        console.log(data.datasets[0].data[0]);
+        myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
+        myChart.update();
+        // console.log(data.datasets[0].data[0]);
+    })
+};
+
+// termOfDeposit.oninput(() => {
+//     myChart.data.dataset[0].data[dataOrder] = event.target.value;
+//     myChart.update();
+// })
+
+updateChartValue(termOfDeposit, 0);
+updateChartValue(requiredAmount, 1);
+updateChartValue(depositPercentage, 2);
+updateChartValue(startingAmount, 3);
+
+
+
+
+
+
+
+
