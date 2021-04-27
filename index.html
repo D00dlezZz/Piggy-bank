@@ -10,60 +10,57 @@
 </head>
 <body>
   <header class="header">
-    <div class="headlines-in-header">
+    <img class="header-logo" src="/image/logo-header.svg" alt="logo">
+    <ul class="header-information">
+      <li class="li-header">Банк</li>
+      <li class="li-header">Бизнес</li>
+      <li class="li-header">Инвестиции</li>
+      <li class="li-header">Валюта</li>
+      <li class="li-header">Карты</li>
+    </ul>
+    <button type="button" class="button-in">Войти</button>
+  </header>
+  <main class="main">
+    <form class="user-from">
+        <label>
+          <input class="target-name" type="text" name="target-name" placeholder="Ваша цель" required>
+        </label>
+        <div class="first-input">
+          <label class="first-label">
+            <div>
+                <input class="required-amount" name="required-amount" type="number" placeholder="Требуемая сумма" required>
+                руб.
+            </div>
+          </label>
+          <label class="second-label">
+            <div>
+                <input class="starting-amount" type="number" name="starting-amount" placeholder="Стартовая сумма" required>
+                руб.
+            </div>
+          </label>
+        </div>
+        <div class="second-input">
+          <label class="three-label">
+            <div>
+                <input class="deposit-term" type="number" name="deposit-term" placeholder="Срок вклада" required>
+                мес.
+            </div>
+          </label>
+          <label class="four-label">
+            <div>
+                <input class="deposit-percentage" type="number" name="deposit-percentage" placeholder="Процент по вкладу" required>
+                %
+            </div>
+          </label>
+        </div>
+        <button name="calculate-button" class="calculate-button">РАССЧИТАТЬ</button>
+    </form>
+    <div class="h1-h2">
       <h1 class="h1-in-header">Копите на любые цели вместе с нами!</h1>
       <h2 class="h2-in-header">НАКОПИТЕЛЬНЫЙ СЧЁТ «КОПИЛКА»</h2>
     </div>
-    <img class="header-logo" src="/image/logo-header.svg" alt="logo">
-  </header>
-  <main class="main">
-    <div class="user-inputes-block">
-      <form class="user-from">
-        <div class="user-from-div">
-          <div class="left-inputs">
-            <label>
-              <p class="target-text">Цель вклада</p>
-              <input class="target-name" type="text" name="target-name" required>
-            </label>
-            <div class="bottom-margins">
-              <label>
-                <p class="required-amount-text">Требуемая сумма</p>
-                <div class="required-amount-div">
-                    <input class="required-amount" name="required-amount" type="number" required>
-                    <p class="rub">руб.</p>
-                </div>
-              </label>
-              <label>
-                <p class="term-of-deposit">Срок вклада</p>
-                <div class="required-amount-div">
-                    <input class="deposit-term" type="number" name="deposit-term" required>
-                    <p class="rub">мес.</p>
-                </div>
-              </label>
-              <label>
-                <p class="percent">Процент по вкладу</p>
-                <div class="required-amount-div">
-                    <input class="deposit-percentage" type="number" name="deposit-percentage" required>
-                    <p class="percent-icon">%</p>
-                </div>
-              </label>
-              <label>
-                <p class="starting-amount-text">Стартовая сумма</p>
-                <div class="required-amount-div">
-                    <input class="starting-amount" type="number" name="starting-amount" required>
-                    <p class="rub">руб.</p>
-                </div>
-              </label>
-            </div>
-          </div>
-          <label class="label-button">
-            <button name="calculate-button" class="calculate-button">Рассчитать</button>
-          </label>
-        </div>
-      </form>
-    </div>
-    <div class="newSection"></div>
   </main>
+  <div class="newSection"></div>
     <script src="/index.js"></script>
 </body>
 </html>
