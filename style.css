@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
 body{
     width: 100%;
     margin: 0 auto;
 }
-
 .header-logo{
     width: 89px;
     height: 78px;
@@ -14,7 +12,6 @@ body{
     margin-left: 34px;
     border-radius: 41px;
 }
-
 .header{
     display: flex;
     background-color: #833AE0;
@@ -22,25 +19,20 @@ body{
     height: 85px;
     margin: 0 auto;
 }
-
 .header-information{
     display: flex;
+    justify-content: space-between;
     color: #FDFDFD;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
     margin-top: 27px;
-    margin-right: 138px;
     margin-bottom: 36px;
     margin-left: 153px;
     padding-left: 0;
     width: 844px;
     height: 22px;
-}
-
-.li-header{
-    margin-right: 100px;
 }
 
 .button-in{
@@ -61,7 +53,6 @@ body{
     margin-bottom: 24px;
     margin-left: 153px;
 }
-
 .main{
     height: 401px;
     background: #F9E95A;
@@ -69,12 +60,9 @@ body{
     box-sizing: border-box;
     display: flex;
 }
-
 .user-from{
     display: block;
-    margin-left: 120px;
 }
-
 input[type=text]::-webkit-input-placeholder {
     color: #C4C4C4;
 }
@@ -83,7 +71,6 @@ input[type=number]::-webkit-input-placeholder {
     font-size: 15px;
     line-height: 18px;
 }
-
 .target-name{
     width: 476px;
     height: 39px;
@@ -102,12 +89,10 @@ input[type=number]::-webkit-input-placeholder {
     border: none;
     outline: none;
 }
-
 .first-input{
     display: flex;
     margin-left: 120px;
 }
-
 .first-label, .second-label, .three-label, .four-label{
     display: flex;
     background-color: #FFFFFF;
@@ -123,7 +108,6 @@ input[type=number]::-webkit-input-placeholder {
     font-weight: 400;
     padding-right: 1px;
 }
-
 .required-amount, .starting-amount, .deposit-term{
     width: 150px;
     height: 24px;
@@ -139,7 +123,6 @@ input[type=number]::-webkit-input-placeholder {
     padding-bottom: 15px;
     padding-left: 6px;
 }
-
 .deposit-percentage{
     width: 173px;
     height: 24px;
@@ -155,17 +138,14 @@ input[type=number]::-webkit-input-placeholder {
     padding-bottom: 15px;
     padding-left: 6px;
 }
-
 .second-label, .four-label{
     margin-left: 34px;
 }
-
 .second-input{
     display: flex;
     margin-left: 120px;
     margin-top: 10px;
 }
-
 .calculate-button{
     width: 203px;
     height: 43px;
@@ -184,16 +164,13 @@ input[type=number]::-webkit-input-placeholder {
     margin-bottom: 76px;
     margin-left: 120px;
 }
-
 .h1-h2{
     width: 685px;
     height: 220px;
     margin-top: 80px;
     margin-right: 29px;
     margin-bottom: 122px;
-    margin-left: 101px;
 }
-
 .h1-in-header{
     width: 677px;
     height: 124px;
@@ -203,7 +180,6 @@ input[type=number]::-webkit-input-placeholder {
     font-family: "Roboto", sans-serif;
     margin: 0;
 }
-
 .h2-in-header{
     width: 663px;
     height: 43px;
@@ -213,7 +189,6 @@ input[type=number]::-webkit-input-placeholder {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
 }
-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
@@ -221,7 +196,6 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0; 
 }
-
 /* начало классов js */
 .target-card{
     width: 573px;
@@ -231,7 +205,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 99px;
     margin-left: 149px;
 }
-
 .inp-target{
     width: 260px;
     height: 45px;
@@ -247,7 +220,9 @@ input[type=number]::-webkit-outer-spin-button {
     color: #833AE0;
     font-family: "Roboto", sans-serif;
 }
-
+.div-treb-sum, .div-start-sum, .div-srok-vyplati, .div-precent-vklad, .div-interest-income, .div-payment    {
+    display: flex;
+}
 .treb-sum, .srok-vyplati, .start-sum, .precent-vklad, .interest-income{
     width: 226px;
     height: 30px;
@@ -261,7 +236,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 0px;
     padding-top: 0;
 }
-
 .payment{
     width: 388px;
     height: 37px;
@@ -269,22 +243,21 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 25px;
     line-height: 29px;
     color: #833AE0;
-}
-
-.item-payment-amount{
+    margin-top: 20px;
+    margin-right: 9px;
+    margin-bottom: 71px;
+    margin-left: 53px;
     font-family: "Roboto", sans-serif; 
+}
+.item-payment-amount{
     width: 925px;
     height: 30px;
-    margin-right: 60px;
-    margin-bottom: 0px;
-    margin-left: 353px;
     color: #B33263;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 30px;
     justify-content: space-between;
     padding-bottom: 30px;
 }
-
 .item{
     /* font-family: "Roboto", sans-serif; 
     width: 925px;
@@ -298,11 +271,9 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-between; */
     margin-left: 53px;
 }
-
 .item-end{
     padding-bottom: 20px;
 }
-
 .inp-payment-amount{
     margin-left: 190px;
     margin-top: -10px;
@@ -315,25 +286,23 @@ input[type=number]::-webkit-outer-spin-button {
     width: 220px;
     background-color: #E6E6FA;
 }
-
 .inp-required-amount{
-    margin-left: 0;
-    margin-top: 0px;
+    margin-left: 0px;
+    margin-top: 18px;
     margin-bottom: 5px;
     height: 30px;
     outline: none;
     border: none;
-    font-size: 25px;
-    color: #704AAE;
-    background-color: #E6E6FA;
-    width: 190px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #F17A04;
     text-align: end;
     margin-right: 10px;
 }
-
 .inp-term-of-deposit{
     margin-left: 0;
-    margin-top: 0px;
+    margin-top: 18px;
     margin-bottom: 5px;
     height: 30px;
     outline: none;
@@ -345,10 +314,9 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: end;
     margin-right: 10px;
 }
-
 .inp-starting-amount{
     margin-left: 0;
-    margin-top: 0px;
+    margin-top: 18px;
     margin-bottom: 5px;
     height: 30px;
     outline: none;
@@ -360,10 +328,9 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: end;
     margin-right: 10px;
 }
-
 .inp-percent{
     margin-left: 0;
-    margin-top: 0px;
+    margin-top: 18px;
     margin-bottom: 5px;
     height: 30px;
     outline: none;
@@ -375,11 +342,9 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: end;
     margin-right: 10px;
 }
-
 li{
     list-style-type: none;
 }
-
 p{
     margin-bottom: 0px;
     margin-top: 10px;
@@ -387,24 +352,19 @@ p{
     margin-left: -305px;
     height: 0px;
 }
-
-/* ul{
+ul{
     margin-left: 515px;
-} */
-
+}
 .income{
     margin-left: 140px;
     margin-top: -9px;
 }
-
 .income-item{
     margin-top: -5px;
 }
-
 .interest-income{
     margin-top: -15px;
 }
-
 .delete-botton{
     margin-left: 651px;
     margin-top: 18px;
@@ -418,28 +378,4 @@ p{
     height: 30px;
     font-size: 20px;
     background-color: #D8BFD8;
-}
-
-.chart-wrapper {
-    width: 320px;
-    height: 330px;
-   display: flex;
-    
-  }
-
-.showContent{
-    display: flex;
-} 
-.hidden {
-    display: none;
-}
-.chart-wrapper-container {
-    display: flex;
-}
-/* #myChart {
-    width: 0px;
-    height: 0px;
-} */
-.new-wrapper {
-    display: flex;
 }
