@@ -2,7 +2,6 @@
 //Рассчитать должен выводиться объект с ключами и значениями ввода
 
 let form = document.querySelector('.userForm');
-let input = document.querySelectorAll('input')
 let calculateButton = document.querySelector('.calculate-button');
 let targetName = document.querySelector('.target-name');
 let requiredAmount = document.querySelector('.required-amount');
@@ -20,21 +19,41 @@ class CalculateResultsObject {
   }
 }
 
-
+function createNewSection() {
+  let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
+  let newButton = document.createElement('button');
+  newButton.className = "delete-botton";
+  newButton.type = "button";
+  newButton.innerHTML = "Удалить";
+  const newSection = document.createElement('ul');
+  newSection.className = 'target-card';
+  newSection.innerHTML = `<li class="item"><p>Название цели<input value = "${objOfResult.name}" class="inp-target"></p></li>
+                          <li class="item"><p>Требуемая сумма<input value = "${objOfResult.amount}" class="inp-required-amount"></p></li>
+                          <li class="item"><p>Срок выплаты<input value = "${objOfResult.date}" class="inp-term-of-deposit"></p></li>
+                          <li class="item"><p>Стартовая сумма<input value = "${objOfResult.startamount}" class="inp-starting-amount"></p></li>
+                          <li class="item item-end"><p>Процент по вкладу<input value = "${objOfResult.percents}" class="inp-percent"></p></li>
+                          <li class="item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents} руб.</p></li>
+                          <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents))/objOfResult.date} руб.</p></li>`;
+  newSection.append(newButton);
+  return newSection;
+}
 
 calculateButton.addEventListener('click', (element) => {
   element.preventDefault();
-  let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
-  const newSection = document.createElement('ul');
-  newSection.className = 'target-card';
-  newSection.innerHTML = `<button class="delete"></button>
-                          <li class="item"><p>Размер платежа</p><input value ="${((objOfResult.amount - objOfResult.startamount) / objOfResult.date).toFixed(4)}"></li>
-                          <li class="item"><p>Название цели</p><input value = "${objOfResult.name}"></li>
-                          <li class="item"><p>Требуемая сумма</p><input value = "${objOfResult.amount}"></li>
-                          <li class="item"><p>Срок выплаты</p><input value = "${objOfResult.date}"></li>
-                          <li class="item"><p>Стартовая сумма</p><input value = "${objOfResult.startamount}"></li>
-                          <li class="item"><p>Процент по вкладу</p><input value = "${objOfResult.percents}"></li>`;
-  document.querySelector('.newSection').append(newSection);
+  let newsection = createNewSection();
+  let clone = newsection.cloneNode(true);
+  document.querySelector('.newSection').append(clone);
+  console.log(clone);
+  document.querySelector('.inp-required-amount').addEventListener('input', () => {
+    document.querySelector('.income').innerHTML = (document.querySelector('.inp-required-amount').value - document.querySelector('.inp-starting-amount').value)/100 * document.querySelector('.inp-percent').value;
+  })
+  clone.querySelector('.delete-botton').addEventListener('click', () => {
+    clone.remove();
+  })
+  targetName.value = "";
+  requiredAmount.value = "";
+  dateRequire.value = "";
+  depositPercentage.value = "";
+  startingAmount.value = "";
+  // console.log(objOfResult);
 })
-
-
