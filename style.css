@@ -371,7 +371,12 @@ ul{
 }
 
 .chart-wrapper {
-    width: 500px;
-    height: 500px;
-    margin: 0;
+    width: 418px;
+    height: 37px;
+    display: none;
+    
   }
+  
+.showContent{
+    display: flex;
+} 

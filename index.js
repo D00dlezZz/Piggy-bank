@@ -1,7 +1,7 @@
 //Артем: При нажатии на кнопку 
 //Рассчитать должен выводиться объект с ключами и значениями ввода
 
-let form = document.querySelector('.userForm');
+let form = document.querySelector('.user-form');
 let calculateButton = document.querySelector('.calculate-button');
 let targetName = document.querySelector('.target-name');
 let requiredAmount = document.querySelector('.required-amount');
@@ -10,6 +10,11 @@ let depositPercentage = document.querySelector('.deposit-percentage');
 let startingAmount = document.querySelector('.starting-amount');
 let targetCard = document.querySelector('.target-card');
 let chartWrapperContainer = document.querySelector('chart-wrapper-container');
+let termOfDeposit = document.querySelector('.deposit-term');
+let myGraff = document.getElementById('myChart');
+let chartWrapper = document.querySelector('chart-wrapper')
+
+
 
 class CalculateResultsObject {
   constructor(name, amount, percents, startamount, date) {
@@ -20,6 +25,8 @@ class CalculateResultsObject {
       this.date = date
   }
 }
+
+let ctx;
 
 function createNewSection() {
   let objOfResult = new CalculateResultsObject(targetName.value, requiredAmount.value, depositPercentage.value, startingAmount.value, dateRequire.value);
@@ -38,9 +45,13 @@ function createNewSection() {
                           <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date} руб.</p></li>`;
   // let graff = document.createElement("div");
   // graff.className = "chart-wrapper";
+  
   // graff.innerHTML = `<canvas id="myChart"></canvas>`;
-  // newSection.prepend(graff);
-  // chartWrapperContainer.insertBefore(graff,newSection);
+  // // newSection.prepend(graff);
+  // // chartWrapperContainer.insertBefore(graff,newSection);
+  // // chartWrapperContainer.insertBefore(graff,newSection);
+  // chartWrapper.classList.add('.showContent');
+  // ctx = document.getElementById('myChart').getContext('2d');
   newSection.append(newButton);
   return newSection;
 }
@@ -57,6 +68,8 @@ calculateButton.addEventListener('click', (element) => {
   clone.querySelector('.delete-botton').addEventListener('click', () => {
     clone.remove();
   })
+  // chartWrapper.classList.add('showContent');
+  chartWrapper.style.display = 'flex';
   targetName.value = "";
   requiredAmount.value = "";
   dateRequire.value = "";
@@ -64,6 +77,15 @@ calculateButton.addEventListener('click', (element) => {
   startingAmount.value = "";
   // console.log(objOfResult);
 })
+
+function createGraff() {
+let graff = document.createElement("div");
+graff.className = "chart-wrapper";
+
+graff.innerHTML = `<canvas id="myChart"></canvas>`;
+// chartWrapper.classList.add('.showContent');
+ctx = document.getElementById('myChart').getContext('2d');
+}
 
 
 
@@ -108,6 +130,7 @@ let data = {
 };
 
 
+ctx = document.getElementById('myChart').getContext('2d');
 
 let myChart = new Chart(ctx, {
   type: 'pie',
