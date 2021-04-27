@@ -34,6 +34,10 @@ body {
   height: 22px;
 }
 
+.li-header:hover {
+    color: #eecd5b;
+}
+
 .button-in {
   width: 113px;
   height: 41px;
