@@ -83,3 +83,5 @@ form.addEventListener('submit', (element) => {
   startingAmount.value = "";
   // console.log(objOfResult);
 })
+
+// 
