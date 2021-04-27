@@ -1,7 +1,7 @@
 //Артем: При нажатии на кнопку 
 //Рассчитать должен выводиться объект с ключами и значениями ввода
 
-let form = document.querySelector('.userForm');
+let form = document.querySelector('.user-from');
 let calculateButton = document.querySelector('.calculate-button');
 let targetName = document.querySelector('.target-name');
 let requiredAmount = document.querySelector('.required-amount');
@@ -38,7 +38,8 @@ function createNewSection() {
   return newSection;
 }
 
-calculateButton.addEventListener('click', (element) => {
+form.addEventListener('submit', (element) => {
+  console.log('hi')
   element.preventDefault();
   let newsection = createNewSection();
   let clone = newsection.cloneNode(true);
