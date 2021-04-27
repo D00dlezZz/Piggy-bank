@@ -27,13 +27,13 @@ function createNewSection() {
   newButton.innerHTML = "Удалить";
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
-  newSection.innerHTML = `<li class="item"><p>Название цели<input value = "${objOfResult.name}" class="inp-target"></p></li>
-                          <li class="item"><p>Требуемая сумма<input value = "${objOfResult.amount}" class="inp-required-amount"></p></li>
-                          <li class="item"><p>Срок выплаты<input value = "${objOfResult.date}" class="inp-term-of-deposit"></p></li>
-                          <li class="item"><p>Стартовая сумма<input value = "${objOfResult.startamount}" class="inp-starting-amount"></p></li>
-                          <li class="item item-end"><p>Процент по вкладу<input value = "${objOfResult.percents}" class="inp-percent"></p></li>
-                          <li class="item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents} руб.</p></li>
-                          <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents))/objOfResult.date} руб.</p></li>`;
+  newSection.innerHTML = `<li class="item"><div><input value = "${objOfResult.name}" class="inp-target"></div></li>
+                          <li class="item"><div><p>Требуемая сумма</p><input value = "${objOfResult.amount}" class="inp-required-amount">руб.</div></li>
+                          <li class="item"><div><p>Срок выплаты</p><input value = "${objOfResult.date}" class="inp-term-of-deposit">мес.</div></li>
+                          <li class="item"><div><p>Стартовая сумма</p><input value = "${objOfResult.startamount}" class="inp-starting-amount">руб.</div></li>
+                          <li class="item item-end"><div><p>Процент по вкладу</p><input value = "${objOfResult.percents}" class="inp-percent">%</div></li>
+                          <li class="item"><div><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents} руб.</p></div></li>
+                          <li class="item-payment-amount"><div><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${((objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents))/objOfResult.date).toFixed(4)} руб.</div></p></li>`;
   newSection.append(newButton);
   return newSection;
 }
