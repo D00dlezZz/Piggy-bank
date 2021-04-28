@@ -14,10 +14,10 @@ let myChart;
 class CalculateResultsObject {
   constructor(name, amount, percents, startamount, date) {
     this.name = name,
-    this.amount = amount,
-    this.percents = percents,
-    this.startamount = startamount,
-    this.date = date
+      this.amount = amount,
+      this.percents = percents,
+      this.startamount = startamount,
+      this.date = date
   }
 }
 
@@ -31,23 +31,24 @@ function createNewSection() {
   let newButton = document.createElement('button');
   newButton.className = "delete-botton";
   newButton.type = "button";
-  newButton.innerHTML = "Удалить";
+  newButton.innerHTML = "УДАЛИТЬ";
   let newChart = newGraff();
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
-  newSection.innerHTML = `<li class="item"><p>Название цели<input value = "${objOfResult.name}" class="inp-target"></p></li>
-                          <li class="item"><p>Требуемая сумма<input value = "${objOfResult.amount}" class="inp-required-amount"></p></li>
-                          <li class="item"><p>Срок выплаты<input value = "${objOfResult.date}" class="inp-term-of-deposit"></p></li>
-                          <li class="item"><p>Стартовая сумма<input value = "${objOfResult.startamount}" class="inp-starting-amount"></p></li>
-                          <li class="item item-end"><p>Процент по вкладу<input value = "${objOfResult.percents}" class="inp-percent"></p></li>
-                          <li class="item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents} руб.</p></li>
-                          <li class="item-payment-amount"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${(objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date} руб.</p></li>`;
-  newSection.append(newButton);
+
+  newSection.innerHTML = `<li class="item"><input value = "${objOfResult.name}" class="inp-target"></li>
+                          <li class="item"><div class="block-item"><p class="treb-sum">Требуемая сумма</p><input value = "${objOfResult.amount}" class="inp-required-amount"><p class="segment">руб.</p></div></li>
+                          <li class="item"><div class="block-item"><p class="start-sum">Стартовая сумма</p><input value = "${objOfResult.startamount} " class="inp-starting-amount"><p class="segment">руб.</p></div></li>
+                          <li class="item"><div class="block-item"><p class="srok-vyplati">Срок выплаты</p><input value = "${objOfResult.date}" class="inp-term-of-deposit"><p class="segment">мес.</p></div></li>
+                          <li class="item item-end"><div class="block-item"><p class="precent-vklad">Процент по вкладу</p><input value = "${objOfResult.percents}" class="inp-percent"><p class="segment">%</p></div></li>
+                          <li class="item"><div class="block-item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents).toFixed(4)} руб.</p></div></li>
+                          <li class="item-payment-amount"><div class="block-item"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${((objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date).toFixed(4)} руб.</div></p></li>`;
+  newSection.prepend(newButton);
   newWrapper.append(newChart);
   const createdCanvasId = canvasId++;
   newWrapper.prepend(newSection)
   setTimeout(() => {
-    let canvas = document.getElementById(`createdChart-${createdCanvasId}`)  
+    let canvas = document.getElementById(`createdChart-${createdCanvasId}`)
     let ctx = canvas.getContext('2d');
     console.log(ctx);
     myChart = new Chart(ctx, {
@@ -60,14 +61,13 @@ function createNewSection() {
   return newWrapper;
 }
 
-
 form.addEventListener('submit', (element) => {
-  
+
   element.preventDefault();
   let newsection = createNewSection();
   let clone = newsection.cloneNode(true);
   document.querySelector('.newSection').append(clone);
-  if (Number(requiredAmount.value) < Number(startingAmount.value) ) {
+  if (Number(requiredAmount.value) < Number(startingAmount.value)) {
     alert('Внимание! Вы ввели неверные данные (требуемая сумма меньше первоначального взноса)!')
     clone.remove();
   }
@@ -80,20 +80,20 @@ form.addEventListener('submit', (element) => {
   let newIncome = document.querySelector('.income')//доход от процента
 
   newRequiredAmount.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
   newTermOfDestroid.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
   newStartingAmount.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
   newPrecent.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4);
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value;
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
 
   clone.querySelector('.delete-botton').addEventListener('click', () => {
@@ -166,7 +166,7 @@ let updateChartValue = (input, dataOrder) => {
 
     myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
     myChart.update();
- 
+
   })
 };
 
@@ -175,6 +175,7 @@ updateChartValue(termOfDeposit, 0);
 updateChartValue(requiredAmount, 1);
 updateChartValue(depositPercentage, 2);
 updateChartValue(startingAmount, 3);
+
 
 
 
