@@ -9,6 +9,15 @@ let startingAmount = document.querySelector('.starting-amount');
 let termOfDeposit = document.querySelector('.deposit-term');
 let chartWrapper = document.querySelector('.chart-wrapper');
 let myChart;
+let payFirstMonth = 0;
+let paymentEveryMonth = 0;
+
+let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
+let newIncome = document.querySelector('.income')//доход от процента
 
 
 class CalculateResultsObject {
@@ -46,9 +55,11 @@ function createNewSection() {
   newSection.prepend(newButton);
   newWrapper.append(newChart);
   const createdCanvasId = canvasId++;
+  console.log( canvasId);
   newWrapper.prepend(newSection)
   setTimeout(() => {
     let canvas = document.getElementById(`createdChart-${createdCanvasId}`)
+    console.log(canvas);
     let ctx = canvas.getContext('2d');
     console.log(ctx);
     myChart = new Chart(ctx, {
@@ -96,6 +107,18 @@ form.addEventListener('submit', (element) => {
     newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
 
+  payFirstMonth = newRequiredAmount.value - newStartingAmount.value;
+  paymentEveryMonth = payFirstMonth - (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4)
+
+  updateChartValue(newTermOfDestroid, 1);
+  updateChartValue(newRequiredAmount, 2);
+  updateChartValue(newIncome, 3);
+  updateChartValue(newStartingAmount, 4);
+  // console.log(payFirstMonth);
+  // console.log(paymentEveryMonth);
+  // // console.log(newPayment,paymentEveryMonth);
+
+
   clone.querySelector('.delete-botton').addEventListener('click', () => {
     clone.remove();
   })
@@ -107,7 +130,7 @@ form.addEventListener('submit', (element) => {
   // console.log(objOfResult);
 })
 
-
+// console.log(newRequiredAmount);
 
 
 
@@ -115,16 +138,14 @@ function newGraff() {
   let graff = document.createElement("div");
   graff.className = "chart-wrapper";
   graff.innerHTML = `<canvas id="createdChart-${canvasId}"></canvas>`;
-
   return graff;
 }
 
-
 let data = {
   labels: [
-    'January',
-    'Febrary',
-    'March',
+    '1',
+    '2',
+    '3',
     'April',
     'May',
     'June',
@@ -152,10 +173,10 @@ let data = {
       'rgb(238, 130, 238)',
       'rgb(138 43 226)'
     ],
-    hoverOffset: 10,
-    borderWidth: 2,
-    borderColor: '#f11f23f3',
-    borderRadius: 25
+    hoverOffset: 34,
+    borderWidth: 8,
+    borderColor: '#fff3',
+    borderRadius: 1
   }],
 
 };
@@ -165,26 +186,47 @@ let updateChartValue = (input, dataOrder) => {
   input.addEventListener('input', event => {
 
     myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
+    console.log(data);
     myChart.update();
 
   })
 };
 
 
-updateChartValue(termOfDeposit, 0);
-updateChartValue(requiredAmount, 1);
-updateChartValue(depositPercentage, 2);
-updateChartValue(startingAmount, 3);
+// updateChartValue(payFirstMonth, 0);
+// updateChartValue(paymentEveryMonth, 1);
+// updateChartValue(depositPercentage, 2);
+// updateChartValue(startingAmount, 3);
+
+// console.log(paymentEveryMonth);
+// console.log(newRequiredAmount);
+// console.log(newStartingAmount);
+
+
+setTimeout(()=> {
 
 
 
+let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
+let newIncome = document.querySelector('.income')//доход от процента
 
 
 
+console.log(payFirstMonth);
+console.log(paymentEveryMonth);
+
+updateChartValue(newTermOfDestroid, 1);
+updateChartValue(newRequiredAmount, 2);
+updateChartValue(newIncome, 3);
+updateChartValue(newStartingAmount, 4);
 
 
-
-
-
-
-
+console.log(newTermOfDestroid);
+console.log(newRequiredAmount);
+console.log(newIncome);
+console.log(newStartingAmount);
+},100)
