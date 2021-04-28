@@ -209,7 +209,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .target-card {
   width: 573px;
   height: 288px;
-  margin-top: 70px;
+  margin-top: 30px;
   margin-right: 182px;
   margin-bottom: 99px;
   margin-left: 82px;
@@ -217,6 +217,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .inp-target {
+  background-color: transparent;
   width: 260px;
   height: 45px;
   margin-top: 6px;
@@ -327,6 +328,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-bottom: 20px;
 }
 .inp-payment-amount {
+  background-color: transparent;
   margin-left: 18px;
   margin-top: 27px;
   margin-bottom: 5px;
@@ -343,6 +345,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .inp-required-amount {
+  background-color: transparent;
   margin-left: 0px;
   margin-top: 18px;
   margin-bottom: 5px;
@@ -366,6 +369,7 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #f17a04;
 }
 .inp-term-of-deposit {
+  background-color: transparent;
   margin-left: 0px;
   margin-top: 18px;
   margin-bottom: 5px;
@@ -381,6 +385,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px;
 }
 .inp-starting-amount {
+  background-color: transparent;
   margin-left: 0px;
   margin-top: 18px;
   margin-bottom: 5px;
@@ -396,6 +401,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 200px;
 }
 .inp-percent {
+  background-color: transparent;
   margin-left: 0px;
   margin-top: 18px;
   margin-bottom: 5px;
@@ -448,9 +454,8 @@ ul {
   margin-top: -15px;
 }
 .delete-botton {
-  margin-left: 1100px;
-  margin-top: 18px;
-  margin-bottom: 17px;
+  position: absolute;
+  margin-top: 25px;
   font-family: "Roboto", sans-serif;
   outline: none;
   border: none;
@@ -460,12 +465,13 @@ ul {
   height: 22px;
   font-size: 10px;
   background-color: #833ae0;
+  left: 510px;
 }
 
 .chart-wrapper {
   width: 300px;
   height: 300px;
-  margin-top: 185px;
+  margin-top: 100px;
   margin-left: 100px;
 }
 
@@ -474,6 +480,9 @@ ul {
 }
 
 .new-wrapper {
+  height: 549px;
   margin-bottom: 105px;
   display: flex;
+  background: url(/image/Background.svg) no-repeat;
 }
+
