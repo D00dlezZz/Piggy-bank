@@ -9,15 +9,24 @@ let startingAmount = document.querySelector('.starting-amount');
 let termOfDeposit = document.querySelector('.deposit-term');
 let chartWrapper = document.querySelector('.chart-wrapper');
 let myChart;
+let payFirstMonth = 0;
+let paymentEveryMonth = 0;
+
+let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
+let newIncome = document.querySelector('.income')//доход от процента
 
 
 class CalculateResultsObject {
   constructor(name, amount, percents, startamount, date) {
     this.name = name,
-    this.amount = amount,
-    this.percents = percents,
-    this.startamount = startamount,
-    this.date = date
+      this.amount = amount,
+      this.percents = percents,
+      this.startamount = startamount,
+      this.date = date
   }
 }
 
@@ -31,24 +40,26 @@ function createNewSection() {
   let newButton = document.createElement('button');
   newButton.className = "delete-botton";
   newButton.type = "button";
-  newButton.innerHTML = "Удалить";
+  newButton.innerHTML = "УДАЛИТЬ";
   let newChart = newGraff();
   const newSection = document.createElement('ul');
   newSection.className = 'target-card';
 
   newSection.innerHTML = `<li class="item"><input value = "${objOfResult.name}" class="inp-target"></li>
-                          <li class="item"><div><p class="treb-sum">Требуемая сумма</p><input value = "${objOfResult.amount}" class="inp-required-amount">руб.</div></li>
-                          <li class="item"><div><p class="start-sum">Стартовая сумма</p><input value = "${objOfResult.startamount}" class="inp-starting-amount">руб.</div></li>
-                          <li class="item"><div><p class="srok-vyplati">Срок выплаты</p><input value = "${objOfResult.date}" class="inp-term-of-deposit">мес.</div></li>
-                          <li class="item item-end"><div><p class="precent-vklad">Процент по вкладу</p><input value = "${objOfResult.percents}" class="inp-percent">%</div></li>
-                          <li class="item"><div><p class="interest-income">Доход от процента по вкладу</p><p class="income">${(objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents} руб.</p></div></li>
-                          <li class="item-payment-amount"><div><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${((objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount)/100 * objOfResult.percents))/objOfResult.date).toFixed(4)} руб.</div></p></li>`;
-  newSection.append(newButton);
+                          <li class="item"><div class="block-item"><p class="treb-sum">Требуемая сумма</p><input value = "${objOfResult.amount}" class="inp-required-amount"><p class="segment">руб.</p></div></li>
+                          <li class="item"><div class="block-item"><p class="start-sum">Стартовая сумма</p><input value = "${objOfResult.startamount} " class="inp-starting-amount"><p class="segment">руб.</p></div></li>
+                          <li class="item"><div class="block-item"><p class="srok-vyplati">Срок выплаты</p><input value = "${objOfResult.date}" class="inp-term-of-deposit"><p class="segment">мес.</p></div></li>
+                          <li class="item item-end"><div class="block-item"><p class="precent-vklad">Процент по вкладу</p><input value = "${objOfResult.percents}" class="inp-percent"><p class="segment">%</p></div></li>
+                          <li class="item"><div class="block-item"><p class="interest-income">Доход от процента по вкладу</p><p class="income">${((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents).toFixed(4)} руб.</p></div></li>
+                          <li class="item-payment-amount"><div class="block-item"><p class="payment">Размер ежемесячного платежа</p><p class="inp-payment-amount">${((objOfResult.amount - objOfResult.startamount - ((objOfResult.amount - objOfResult.startamount) / 100 * objOfResult.percents)) / objOfResult.date).toFixed(4)} руб.</div></p></li>`;
+  newSection.prepend(newButton);
   newWrapper.append(newChart);
   const createdCanvasId = canvasId++;
+  console.log( canvasId);
   newWrapper.prepend(newSection)
   setTimeout(() => {
-    let canvas = document.getElementById(`createdChart-${createdCanvasId}`)  
+    let canvas = document.getElementById(`createdChart-${createdCanvasId}`)
+    console.log(canvas);
     let ctx = canvas.getContext('2d');
     console.log(ctx);
     myChart = new Chart(ctx, {
@@ -62,12 +73,12 @@ function createNewSection() {
 }
 
 form.addEventListener('submit', (element) => {
-  
+
   element.preventDefault();
   let newsection = createNewSection();
   let clone = newsection.cloneNode(true);
   document.querySelector('.newSection').append(clone);
-  if (Number(requiredAmount.value) < Number(startingAmount.value) ) {
+  if (Number(requiredAmount.value) < Number(startingAmount.value)) {
     alert('Внимание! Вы ввели неверные данные (требуемая сумма меньше первоначального взноса)!')
     clone.remove();
   }
@@ -80,21 +91,33 @@ form.addEventListener('submit', (element) => {
   let newIncome = document.querySelector('.income')//доход от процента
 
   newRequiredAmount.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4) + "руб.";
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value + "руб.";
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
   newTermOfDestroid.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4) + "руб.";
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value + "руб.";
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
   newStartingAmount.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4) + "руб."; 
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value + "руб.";
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
   newPrecent.addEventListener('input', () => {
-    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value)))/newTermOfDestroid.value).toFixed(4) + "руб.";
-    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value)/100 * newPrecent.value + "руб.";
+    newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
+    newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
+
+  payFirstMonth = newRequiredAmount.value - newStartingAmount.value;
+  paymentEveryMonth = payFirstMonth - (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4)
+
+  updateChartValue(newTermOfDestroid, 1);
+  updateChartValue(newRequiredAmount, 2);
+  updateChartValue(newIncome, 3);
+  updateChartValue(newStartingAmount, 4);
+  // console.log(payFirstMonth);
+  // console.log(paymentEveryMonth);
+  // // console.log(newPayment,paymentEveryMonth);
+
 
   clone.querySelector('.delete-botton').addEventListener('click', () => {
     clone.remove();
@@ -107,7 +130,7 @@ form.addEventListener('submit', (element) => {
   // console.log(objOfResult);
 })
 
-
+// console.log(newRequiredAmount);
 
 
 
@@ -115,16 +138,14 @@ function newGraff() {
   let graff = document.createElement("div");
   graff.className = "chart-wrapper";
   graff.innerHTML = `<canvas id="createdChart-${canvasId}"></canvas>`;
-
   return graff;
 }
 
-
 let data = {
   labels: [
-    'January',
-    'Febrary',
-    'March',
+    '1',
+    '2',
+    '3',
     'April',
     'May',
     'June',
@@ -152,10 +173,10 @@ let data = {
       'rgb(238, 130, 238)',
       'rgb(138 43 226)'
     ],
-    hoverOffset: 10,
-    borderWidth: 2,
-    borderColor: '#f11f23f3',
-    borderRadius: 25
+    hoverOffset: 34,
+    borderWidth: 8,
+    borderColor: '#fff3',
+    borderRadius: 1
   }],
 
 };
@@ -165,26 +186,47 @@ let updateChartValue = (input, dataOrder) => {
   input.addEventListener('input', event => {
 
     myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
+    console.log(data);
     myChart.update();
- 
+
   })
 };
 
 
-updateChartValue(termOfDeposit, 0);
-updateChartValue(requiredAmount, 1);
-updateChartValue(depositPercentage, 2);
-updateChartValue(startingAmount, 3);
+// updateChartValue(payFirstMonth, 0);
+// updateChartValue(paymentEveryMonth, 1);
+// updateChartValue(depositPercentage, 2);
+// updateChartValue(startingAmount, 3);
+
+// console.log(paymentEveryMonth);
+// console.log(newRequiredAmount);
+// console.log(newStartingAmount);
+
+
+setTimeout(()=> {
 
 
 
+let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
+let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
+let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
+let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
+let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
+let newIncome = document.querySelector('.income')//доход от процента
 
 
 
+console.log(payFirstMonth);
+console.log(paymentEveryMonth);
+
+updateChartValue(newTermOfDestroid, 1);
+updateChartValue(newRequiredAmount, 2);
+updateChartValue(newIncome, 3);
+updateChartValue(newStartingAmount, 4);
 
 
-
-
-
-
-
+console.log(newTermOfDestroid);
+console.log(newRequiredAmount);
+console.log(newIncome);
+console.log(newStartingAmount);
+},100)
