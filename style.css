@@ -232,7 +232,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-family: "Roboto", sans-serif;
 }
 .interest-income {
-  width: 226px;
+  width: 230px;
   height: 30px;
   font-size: 24px;
   color: #833ae0;
@@ -335,7 +335,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border: none;
   font-size: 30px;
   color: #f17a04;
-  width: 220px;
+  width: 300px;
   font-weight: 700;
   font-size: 25px;
   text-align: end;
@@ -427,7 +427,6 @@ ul {
 .income {
   font-family: "Roboto", sans-serif;
   margin-left: 0px;
-  margin-top: 18px;
   margin-bottom: 5px;
   height: 30px;
   outline: none;
@@ -438,7 +437,7 @@ ul {
   color: #f17a04;
   text-align: end;
   margin-right: 10px;
-  width: 200px;
+  width: 235px;
   margin-top: -9px;
 }
 .income-item {
