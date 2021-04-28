@@ -122,9 +122,9 @@ function newGraff() {
 
 let data = {
   labels: [
-    'January',
-    'Febrary',
-    'March',
+    '',
+    '2',
+    '3',
     'April',
     'May',
     'June',
