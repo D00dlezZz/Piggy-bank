@@ -1,4 +1,3 @@
-
 let form = document.querySelector('.user-from');
 let calculateButton = document.querySelector('.calculate-button');
 let targetName = document.querySelector('.target-name');
@@ -66,7 +65,6 @@ function createNewSection() {
       type: 'pie',
       data: data
     });
-    console.log(data, myChart);
     myChart.update();
   }, 10)
   return newWrapper;
@@ -76,11 +74,10 @@ form.addEventListener('submit', (element) => {
 
   element.preventDefault();
   let newsection = createNewSection();
-  let clone = newsection.cloneNode(true);
-  document.querySelector('.newSection').append(clone);
+  document.querySelector('.newSection').append(newsection);
   if (Number(requiredAmount.value) < Number(startingAmount.value)) {
     alert('Внимание! Вы ввели неверные данные (требуемая сумма меньше первоначального взноса)!')
-    clone.remove();
+    newsection.remove();
   }
 
   let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
@@ -90,47 +87,35 @@ form.addEventListener('submit', (element) => {
   let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
   let newIncome = document.querySelector('.income')//доход от процента
 
-  newRequiredAmount.addEventListener('input', () => {
+  newRequiredAmount.addEventListener('input', (el) => {
     newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
     newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
+    updateChartValue(el, 0)
   });
   newTermOfDestroid.addEventListener('input', () => {
     newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
     newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
-  newStartingAmount.addEventListener('input', () => {
+  newStartingAmount.addEventListener('input', (el) => {
     newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
     newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
+    updateChartValue(el, 1)
   });
   newPrecent.addEventListener('input', () => {
     newPayment.innerHTML = (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4) + "руб.";
     newIncome.innerHTML = (newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value + "руб.";
   });
 
-  payFirstMonth = newRequiredAmount.value - newStartingAmount.value;
-  paymentEveryMonth = payFirstMonth - (((newRequiredAmount.value - newStartingAmount.value - ((newRequiredAmount.value - newStartingAmount.value) / 100 * newPrecent.value))) / newTermOfDestroid.value).toFixed(4)
-
-  updateChartValue(newTermOfDestroid, 1);
-  updateChartValue(newRequiredAmount, 2);
-  updateChartValue(newIncome, 3);
-  updateChartValue(newStartingAmount, 4);
-  // console.log(payFirstMonth);
-  // console.log(paymentEveryMonth);
-  // // console.log(newPayment,paymentEveryMonth);
-
-
-  clone.querySelector('.delete-botton').addEventListener('click', () => {
-    clone.remove();
+  
+  newsection.querySelector('.delete-botton').addEventListener('click', () => {
+    newsection.remove();
   })
   targetName.value = "";
   requiredAmount.value = "";
   dateRequire.value = "";
   depositPercentage.value = "";
   startingAmount.value = "";
-  // console.log(objOfResult);
 })
-
-// console.log(newRequiredAmount);
 
 
 
@@ -145,33 +130,13 @@ let data = {
   labels: [
     '1',
     '2',
-    '3',
-    'April',
-    'May',
-    'June',
-    'Jule',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
   ],
   datasets: [{
     label: 'My Dataset',
-    data: [10, 20, 30, 40],
+    data: [10,20],
     backgroundColor: [
       'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)',
-      'rgb(0, 128, 0)',
-      'rgb(128, 0, 128)',
-      'rgb(128, 128, 128)',
-      'rgb(0, 255, 255)',
-      'rgb(0, 100, 0)',
-      'rgb(0, 255, 0)',
-      'rgb(255, 215, 0)',
-      'rgb(238, 130, 238)',
-      'rgb(138 43 226)'
+      'rgb(54, 162, 235)'
     ],
     hoverOffset: 34,
     borderWidth: 8,
@@ -182,51 +147,9 @@ let data = {
 };
 
 
-let updateChartValue = (input, dataOrder) => {
-  input.addEventListener('input', event => {
-
-    myChart.data.datasets[0].data[dataOrder] = Number(event.target.value);
-    console.log(data);
-    myChart.update();
-
-  })
+function updateChartValue(input, dataOrder) {
+  myChart.data.datasets[0].data[dataOrder] = Number(input.value);
+  myChart.update();
 };
 
 
-// updateChartValue(payFirstMonth, 0);
-// updateChartValue(paymentEveryMonth, 1);
-// updateChartValue(depositPercentage, 2);
-// updateChartValue(startingAmount, 3);
-
-// console.log(paymentEveryMonth);
-// console.log(newRequiredAmount);
-// console.log(newStartingAmount);
-
-
-setTimeout(()=> {
-
-
-
-let newRequiredAmount = document.querySelector('.inp-required-amount');//Инпут с требуемой суммой
-let newTermOfDestroid = document.querySelector('.inp-term-of-deposit');//Инпут с сроком вклада
-let newStartingAmount = document.querySelector('.inp-starting-amount');//инпут с стартовой суммой
-let newPrecent = document.querySelector('.inp-percent');//Инпут с процентом 
-let newPayment = document.querySelector('.inp-payment-amount');//Размер ежемесячного
-let newIncome = document.querySelector('.income')//доход от процента
-
-
-
-console.log(payFirstMonth);
-console.log(paymentEveryMonth);
-
-updateChartValue(newTermOfDestroid, 1);
-updateChartValue(newRequiredAmount, 2);
-updateChartValue(newIncome, 3);
-updateChartValue(newStartingAmount, 4);
-
-
-console.log(newTermOfDestroid);
-console.log(newRequiredAmount);
-console.log(newIncome);
-console.log(newStartingAmount);
-},100)
