@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="icon"
+    href="/image/kisspng-computer-icons-download-approve-symbol-5adcfc023720d6.7107077115244318742258.jpg"
+    type="image/x-icon" />
+  <title>Save Money</title>
+</head>
+
+<body>
+  <header class="header">
+    <img class="header-logo" src="/image/ALlogo.svg" alt="logo">
+    <ul class="header-information">
+      <li class="li-header">Банк</li>
+      <li class="li-header">Бизнес</li>
+      <li class="li-header">Инвестиции</li>
+      <li class="li-header">Валюта</li>
+      <li class="li-header">Карты</li>
+    </ul>
+    <button type="button" class="button-in">Войти</button>
+  </header>
+  <main class="main">
+    <form class="user-from">
+      <label>
+        <input class="target-name" value="" type="text" name="target-name" placeholder="Ваша цель" required>
+      </label>
+      <div class="first-input">
+        <label class="first-label">
+          <div>
+            <input class="required-amount" value="" name="required-amount" type="number" placeholder="Требуемая сумма" required>
+            руб.
+          </div>
+        </label>
+        <label class="second-label">
+          <div>
+            <input class="starting-amount" value="" type="number" name="starting-amount" placeholder="Стартовая сумма" required>
+            руб.
+          </div>
+        </label>
+      </div>
+      <div class="second-input">
+        <label class="three-label">
+          <div>
+            <input class="deposit-term" value="" type="number" name="deposit-term" placeholder="Срок вклада" required>
+            мес.
+          </div>
+        </label>
+        <label class="four-label">
+          <div>
+            <input class="deposit-percentage" value="" type="number" name="deposit-percentage" placeholder="Процент по вкладу"
+              required>
+            %
+          </div>
+        </label>
+      </div>
+      <button name="calculate-button" class="calculate-button">РАССЧИТАТЬ</button>
+    </form>
+    <div class="h1-h2">
+      <h1 class="h1-in-header">Копите на любые цели вместе с нами!</h1>
+      <h2 class="h2-in-header">НАКОПИТЕЛЬНЫЙ СЧЁТ «КОПИЛКА»</h2>
+    </div>
+
+  </main>
+
+  <div class="chart-wrapper-container">
+    <div class="chart-wrapper hidden">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="newSectionContainer"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+    integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+    crossorigin="anonymous"></script>
+  <script src="/index.js"></script>
+</body>
+
+</html>
+
+
+
+
+</div>
+</main>
+<script src="/index.js"></script>
