@@ -1,0 +1,24 @@
+{
+  "name": "Piggy-bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https:/D00dlezZz.github.io/Piggy-bank",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D00dlezZz/Piggy-bank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D00dlezZz/Piggy-bank/issues"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
