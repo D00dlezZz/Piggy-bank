@@ -1,23 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   width: 1440px;
   margin: 0 auto;
 }
+
 .header-logo {
   width: 89px;
   height: 78px;
-  margin-top: 3px;
   margin-right: 153px;
   margin-bottom: 3px;
   margin-left: 50px;
 }
 .header {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #833ae0;
-  border: 1px solid #d2aff6;
   height: 85px;
   margin: 0 auto;
+  padding: 0;
 }
+
 .header-information {
   display: flex;
   justify-content: space-between;
